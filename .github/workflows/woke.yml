@@ -9,8 +9,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      ## Get changed files in this PR, to be used as arguments to woke
+      - uses: jitterbit/get-changed-files@v1
+        id: files
+
       - name: woke
         uses: get-woke/woke-action@v0
         with:
           # Cause the check to fail on any broke rules
           fail-on-error: true
+          # See https://github.com/marketplace/actions/get-all-changed-files
+          # for more options
+          woke-args: ${{ steps.files.outputs.added_modified }}
