@@ -4,3 +4,13 @@ This repo contains example PRs for using [`woke`](https://getwoke.tech) GitHub A
 
 - [GitHub Action](https://github.com/marketplace/actions/run-woke)
 - [GitHub Action (reviewdog)](https://github.com/marketplace/actions/run-woke-with-reviewdog)
+
+## Violations
+
+- whitelist
+- blacklist
+- guys <!--wokeignore:rule=guys -->
+- sanity check
+- grandfathered
+- man-hours
+- dummy value
