@@ -1,0 +1,24 @@
+name: woke
+on: [pull_request]
+
+jobs:
+  woke:
+    name: runner / woke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: get-woke/woke-action-reviewdog@v0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-check
+
+          # will fail both PR check and runner
+          # fail-on-error: true
+
+          # GitHub Status Check won't become failure with violations
+          # that have severity warn when using level: warning
+          # level: error
+
+          # Change the filter mode
+          # See https://github.com/reviewdog/reviewdog#filter-mode
+          # filter-mode: added
